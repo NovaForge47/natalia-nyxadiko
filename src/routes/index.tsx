@@ -821,20 +821,24 @@ function Footer() {
       <div className="mx-auto max-w-7xl px-6 lg:px-10">
         <div className="grid md:grid-cols-4 gap-12">
           <div className="md:col-span-2">
-            <div className="font-display italic text-rose-gold text-3xl">Lumière Nails</div>
+            <div className="font-display italic text-rose-gold text-3xl">Natalia Νυχάδικο</div>
             <p className="mt-6 text-white/60 text-sm leading-relaxed max-w-sm">
-              Premium nail studio στην καρδιά της Αθήνας. Κάθε νύχι είναι έργο τέχνης.
+              Nail studio στην Αθήνα. Κάθε νύχι είναι έργο τέχνης.
             </p>
             <div className="mt-6 flex gap-3">
               <a
-                href="#"
+                href={BUSINESS.instagram}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full border border-rose-gold flex items-center justify-center text-rose-gold hover:bg-rose-gold hover:text-white transition-all"
                 aria-label="Instagram"
               >
                 <Instagram size={16} />
               </a>
               <a
-                href="#"
+                href={BUSINESS.facebook}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full border border-rose-gold flex items-center justify-center text-rose-gold hover:bg-rose-gold hover:text-white transition-all"
                 aria-label="Facebook"
               >
@@ -843,34 +847,46 @@ function Footer() {
             </div>
           </div>
           <div>
-            <div className="text-[11px] uppercase tracking-[0.25em] text-rose-gold">Πλοήγηση</div>
+            <div className="text-[11px] uppercase tracking-[0.25em] text-rose-gold">Ωράριο</div>
             <div className="mt-5 h-px w-10 bg-rose-gold" />
-            <ul className="mt-5 space-y-3 text-sm text-white/80">
-              <li><a href="#home" className="hover:text-rose-gold">Αρχική</a></li>
-              <li><a href="#services" className="hover:text-rose-gold">Υπηρεσίες</a></li>
-              <li><a href="#booking" className="hover:text-rose-gold">Κρατήσεις</a></li>
-              <li><a href="#contact" className="hover:text-rose-gold">Επικοινωνία</a></li>
+            <ul className="mt-5 space-y-2 text-sm text-white/80">
+              {BUSINESS.hours.map((h) => (
+                <li key={h.day} className="flex justify-between gap-4">
+                  <span>{h.day}</span>
+                  <span className={h.time === "Κλειστά" ? "text-white/40" : "text-rose-gold"}>
+                    {h.time}
+                  </span>
+                </li>
+              ))}
             </ul>
           </div>
           <div>
             <div className="text-[11px] uppercase tracking-[0.25em] text-rose-gold">Επικοινωνία</div>
             <div className="mt-5 h-px w-10 bg-rose-gold" />
             <ul className="mt-5 space-y-3 text-sm text-white/80">
-              <li className="flex items-start gap-3">
-                <MapPin size={16} className="text-rose-gold mt-0.5 shrink-0" />
-                Ερμού 45, Αθήνα 10563
+              <li>
+                <a
+                  href={BUSINESS.mapsUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-start gap-3 hover:text-rose-gold transition-colors"
+                >
+                  <MapPin size={16} className="text-rose-gold mt-0.5 shrink-0" />
+                  {BUSINESS.address}
+                </a>
               </li>
-              <li className="flex items-center gap-3">
-                <Phone size={16} className="text-rose-gold shrink-0" />
-                +30 210 000 0000
-              </li>
-              <li className="flex items-center gap-3">
-                <Mail size={16} className="text-rose-gold shrink-0" />
-                hello@lumierenails.gr
+              <li>
+                <a
+                  href={`tel:${BUSINESS.phoneTel}`}
+                  className="flex items-center gap-3 hover:text-rose-gold transition-colors"
+                >
+                  <Phone size={16} className="text-rose-gold shrink-0" />
+                  {BUSINESS.phone}
+                </a>
               </li>
             </ul>
             <a
-              href="https://www.google.com/maps/dir/?api=1&destination=Ermou+45,+Athens+10563,+Greece"
+              href={BUSINESS.mapsUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="mt-5 inline-flex items-center gap-2 rounded-full border border-rose-gold text-rose-gold px-4 py-2 text-xs uppercase tracking-[0.2em] hover:bg-rose-gold hover:text-white transition-all"
@@ -881,8 +897,8 @@ function Footer() {
         </div>
         <div className="mt-14 rounded-2xl overflow-hidden border border-rose-gold/40 shadow-[0_25px_60px_-30px_rgba(183,110,121,0.6)]">
           <iframe
-            title="Lumière Nails — Ερμού 45, Αθήνα"
-            src="https://www.google.com/maps?q=Ermou+45,+Athens+10563,+Greece&output=embed"
+            title="Natalia Νυχάδικο — Pithias 55, Αθήνα"
+            src="https://www.google.com/maps?q=Pithias+55,+Athina+113+64&output=embed"
             width="100%"
             height="320"
             loading="lazy"
@@ -892,9 +908,10 @@ function Footer() {
         </div>
         <div className="mt-16 h-px bg-rose-gold/40" />
         <p className="mt-6 text-center text-xs text-white/40">
-          © 2026 Lumière Nails. All rights reserved.
+          © 2026 Natalia Νυχάδικο. All rights reserved.
         </p>
       </div>
     </footer>
+
   );
 }
