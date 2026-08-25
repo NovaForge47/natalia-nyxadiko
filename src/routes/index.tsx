@@ -8,7 +8,6 @@ import nail4 from "@/assets/gallery/nail-4.png.asset.json";
 import nail5 from "@/assets/gallery/nail-5.png.asset.json";
 import {
   ArrowRight,
-  Plus,
   Star,
   MapPin,
   Phone,
