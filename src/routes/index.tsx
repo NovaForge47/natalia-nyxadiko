@@ -519,19 +519,6 @@ function Team() {
 
 /* -------------------- BOOKING -------------------- */
 function Booking() {
-  const [service, setService] = useState("");
-  const [artist, setArtist] = useState("");
-  const [date, setDate] = useState("");
-  const [slot, setSlot] = useState<string | null>(null);
-  const [name, setName] = useState("");
-  const [phone, setPhone] = useState("");
-  const [done, setDone] = useState(false);
-
-  const submit = (e: FormEvent) => {
-    e.preventDefault();
-    setDone(true);
-  };
-
   return (
     <section id="booking" className="bg-blush py-24 lg:py-32">
       <div className="mx-auto max-w-4xl px-6">
@@ -544,155 +531,37 @@ function Booking() {
           <p className="mt-4 text-ink/70">Online 24/7 — χωρίς τηλεφώνημα</p>
         </div>
 
-        <div className="mt-10 mx-auto max-w-2xl rounded-xl border border-rose-gold bg-white px-6 py-4 text-sm text-ink/80 text-center">
-          📌 Demo φόρμα — Σε πραγματικό site η κράτηση γίνεται αυτόματα
+        <div className="mt-10 bg-white rounded-2xl p-3 md:p-5 shadow-[0_25px_60px_-25px_rgba(183,110,121,0.35)]">
+          <iframe
+            title="Κράτηση ραντεβού — Natalia Νυχάδικο"
+            src={BUSINESS.booking}
+            className="block w-full rounded-xl border border-rose-gold/40"
+            height={700}
+            loading="lazy"
+          />
         </div>
 
-        <div className="mt-8 bg-white rounded-2xl p-8 md:p-12 shadow-[0_25px_60px_-25px_rgba(183,110,121,0.35)]">
-          {done ? (
-            <div className="text-center py-16">
-              <div className="text-5xl">✅</div>
-              <h3 className="mt-6 font-display text-3xl">Το ραντεβού σας καταχωρήθηκε!</h3>
-              <p className="mt-3 text-ink/60">
-                Θα λάβετε επιβεβαίωση σύντομα. Ευχαριστούμε που επιλέξατε το Lumière Nails.
-              </p>
-              <button
-                onClick={() => {
-                  setDone(false);
-                  setService("");
-                  setArtist("");
-                  setDate("");
-                  setSlot(null);
-                  setName("");
-                  setPhone("");
-                }}
-                className="mt-8 inline-flex items-center rounded-full bg-rose-gold text-white px-6 py-3 text-sm"
-              >
-                Νέα Κράτηση
-              </button>
-            </div>
-          ) : (
-            <form onSubmit={submit} className="space-y-6">
-              <div className="grid md:grid-cols-2 gap-6">
-                <Field label="Υπηρεσία">
-                  <select
-                    required
-                    value={service}
-                    onChange={(e) => setService(e.target.value)}
-                    className="lumiere-input"
-                  >
-                    <option value="">Επιλέξτε Υπηρεσία</option>
-                    {services.map((s) => (
-                      <option key={s.name} value={s.name}>
-                        {s.name} — {s.price}
-                      </option>
-                    ))}
-                  </select>
-                </Field>
-                <Field label="Τεχνίτρια">
-                  <select
-                    required
-                    value={artist}
-                    onChange={(e) => setArtist(e.target.value)}
-                    className="lumiere-input"
-                  >
-                    <option value="">Επιλέξτε Τεχνίτρια</option>
-                    <option>Μαρία</option>
-                    <option>Ελένη</option>
-                    <option>Σοφία</option>
-                    <option>Δεν έχω προτίμηση</option>
-                  </select>
-                </Field>
-              </div>
-              <Field label="Ημερομηνία">
-                <input
-                  type="date"
-                  required
-                  value={date}
-                  onChange={(e) => setDate(e.target.value)}
-                  className="lumiere-input accent-rose-gold"
-                />
-              </Field>
-              <Field label="Ώρα">
-                <div className="flex flex-wrap gap-2">
-                  {timeSlots.map((t) => (
-                    <button
-                      type="button"
-                      key={t}
-                      onClick={() => setSlot(t)}
-                      className={`rounded-full border px-5 py-2 text-sm transition-all ${
-                        slot === t
-                          ? "bg-rose-gold text-white border-rose-gold"
-                          : "bg-white text-ink border-rose-gold hover:bg-blush/40"
-                      }`}
-                    >
-                      {t}
-                    </button>
-                  ))}
-                </div>
-              </Field>
-              <div className="grid md:grid-cols-2 gap-6">
-                <Field label="Ονοματεπώνυμο">
-                  <input
-                    required
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
-                    placeholder="π.χ. Μαρία Παπαδοπούλου"
-                    className="lumiere-input"
-                  />
-                </Field>
-                <Field label="Τηλέφωνο">
-                  <input
-                    required
-                    value={phone}
-                    onChange={(e) => setPhone(e.target.value)}
-                    placeholder="6900000000"
-                    className="lumiere-input"
-                  />
-                </Field>
-              </div>
-              <button
-                type="submit"
-                className="w-full rounded-full bg-rose-gold text-white py-4 text-sm font-medium tracking-wide hover:bg-rose-gold/90 transition-all hover:-translate-y-0.5 inline-flex items-center justify-center gap-2 shadow-[0_15px_30px_-12px_rgba(183,110,121,0.6)]"
-              >
-                Επιβεβαίωση Ραντεβού <ArrowRight size={16} />
-              </button>
-            </form>
-          )}
+        <div className="mt-8 flex flex-wrap justify-center gap-4">
+          <a
+            href={BUSINESS.booking}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 rounded-full bg-rose-gold text-white px-7 py-3.5 text-sm font-medium hover:-translate-y-0.5 transition-all shadow-[0_15px_30px_-12px_rgba(183,110,121,0.6)]"
+          >
+            Κράτηση σε νέα καρτέλα <ArrowRight size={16} />
+          </a>
+          <a
+            href={`tel:${BUSINESS.phoneTel}`}
+            className="inline-flex items-center gap-2 rounded-full border border-rose-gold text-rose-gold bg-white px-7 py-3.5 text-sm font-medium hover:bg-rose-gold hover:text-white transition-all"
+          >
+            <Phone size={16} /> {BUSINESS.phone}
+          </a>
         </div>
       </div>
-
-      <style>{`
-        .lumiere-input {
-          width: 100%;
-          background: #fff;
-          border: 1px solid var(--rose-gold);
-          border-radius: 8px;
-          padding: 12px 14px;
-          font-family: var(--font-body);
-          font-size: 14px;
-          color: var(--ink);
-          transition: all 0.2s ease;
-          outline: none;
-        }
-        .lumiere-input:focus {
-          border-width: 2px;
-          padding: 11px 13px;
-          box-shadow: 0 0 0 4px rgba(183,110,121,0.15);
-        }
-      `}</style>
     </section>
   );
 }
 
-function Field({ label, children }: { label: string; children: React.ReactNode }) {
-  return (
-    <label className="block">
-      <span className="block mb-2 text-xs uppercase tracking-[0.2em] text-ink/70">{label}</span>
-      {children}
-    </label>
-  );
-}
 
 /* -------------------- GALLERY -------------------- */
 function Gallery() {
