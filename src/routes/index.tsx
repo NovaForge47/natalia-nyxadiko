@@ -1,15 +1,13 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useEffect, useRef, useState, type FormEvent } from "react";
+import { useEffect, useRef, useState } from "react";
 import heroHand from "@/assets/hero-hand.jpg";
 import {
-  Sparkles,
   ArrowRight,
   ArrowDown,
   Plus,
   Star,
   MapPin,
   Phone,
-  Mail,
   Instagram,
   Facebook,
   Menu,
@@ -18,7 +16,25 @@ import {
 
 export const Route = createFileRoute("/")({
   component: LumierePage,
+  head: () => ({
+    meta: [
+      { title: "Natalia Νυχάδικο — Nail Salon στην Αθήνα | 4.7★ στο Google" },
+      {
+        name: "description",
+        content:
+          "Natalia Νυχάδικο, Pithias 55, Αθήνα. Manicure, pedicure, ημιμόνιμο και nail art. 4.7★ από 62 κριτικές στο Google. Κλείστε ραντεβού online.",
+      },
+      { property: "og:title", content: "Natalia Νυχάδικο — Nail Salon στην Αθήνα" },
+      {
+        property: "og:description",
+        content: "Pithias 55, Αθήνα · 695 755 7554 · Online κρατήσεις 24/7.",
+      },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+    ],
+  }),
 });
+
 
 const services = [
   { icon: "💅", name: "Manicure Απλό", duration: "45 λεπτά", price: "€15" },
@@ -53,22 +69,44 @@ const team = [
   },
 ];
 
+const BUSINESS = {
+  name: "Natalia Νυχάδικο",
+  address: "Pithias 55, Athina 113 64",
+  mapsUrl: "https://www.google.com/maps/place/Pithias+55,+Athina+113+64",
+  phone: "695 755 7554",
+  phoneTel: "+306957557554",
+  instagram: "https://www.instagram.com/nporseva/",
+  facebook: "https://www.facebook.com/profile.php?id=100063954436413",
+  booking: "https://natalianailsalon.setmore.com/natalia",
+  hours: [
+    { day: "Δευτέρα", time: "Κλειστά" },
+    { day: "Τρίτη", time: "9:00 - 21:00" },
+    { day: "Τετάρτη", time: "9:00 - 21:00" },
+    { day: "Πέμπτη", time: "9:00 - 21:00" },
+    { day: "Παρασκευή", time: "9:00 - 21:00" },
+    { day: "Σάββατο", time: "9:00 - 20:00" },
+    { day: "Κυριακή", time: "Κλειστά" },
+  ],
+};
+
 const reviews = [
   {
-    text: "Απίστευτη δουλειά! Τα νύχια μου έμειναν τέλεια για 3 εβδομάδες.",
-    name: "ΜΑΡΙΑ Π.",
+    name: "Κλαουντια Δεμπελη",
+    stars: 5,
+    text: "Είμαι πολύ ευχαριστημένη με τη δουλειά τους! 🌸 Άριστη εξυπηρέτηση, σχολαστική δουλειά και πολύ όμορφο αποτέλεσμα στα νύχια. Ο χώρος είναι καθαρός και το προσωπικό ευγενικό και επαγγελματικό. Σίγουρα θα ξαναπάω και το συνιστώ ανεπιφύλακτα! ✨",
   },
   {
-    text: "Επαγγελματισμός και φιλικό περιβάλλον. Θα ξαναέρθω σίγουρα!",
-    name: "ΕΛΕΝΗ Κ.",
+    name: "Maria Louiza Stergiou",
+    stars: 5,
+    text: "Υπέροχο μέρος, καθαρό και πολύ φροντισμένο. Η κ. Ναταλία είναι εξαιρετική επαγγελματίας, με μεγάλη εμπειρία και προσοχή στη λεπτομέρεια. Όλες οι κοπέλες είναι άριστες και η δουλειά τους άψογη. Το μασάζ της κ. Αφροδίτης είναι μοναδικό, χαλαρωτικό και απολαυστικό!!!",
   },
   {
-    text: "Το καλύτερο nail studio που έχω επισκεφτεί στην Αθήνα.",
-    name: "ΣΟΦΙΑ Μ.",
+    name: "Χριστίνα Γούλα",
+    stars: 5,
+    text: "Επισκέπτομαι το χώρο εδώ και ένα χρόνο. Δεν ξέρω αν υπάρχουν λέξεις για τη θαυμάσια δουλειά. Τα νύχια μου είναι εύθραυστα και κόβονται κάθετα. Όπου κι αν πήγα, μέσα σε μια βδομάδα το πολύ έσπαγαν. Τώρα το μανικιούρ κρατάει ένα μήνα και είμαι περήφανη για τα χέρια μου. Ευχαριστώ πολύ Ναταλία και όλες τις κοπέλες για το απίστευτο περιβάλλον που με κάνει να νιώθω σαν να είναι φίλες μου.",
   },
 ];
 
-const timeSlots = ["10:00", "11:00", "12:00", "14:00", "15:00", "16:00", "17:00", "18:00"];
 
 function LumierePage() {
   return (
@@ -118,7 +156,7 @@ function Nav() {
           href="#home"
           className="font-display italic text-2xl md:text-3xl text-rose-gold tracking-tight truncate"
         >
-          Lumière Nails
+          Natalia Νυχάδικο
         </a>
         <nav className="hidden md:flex items-center justify-center gap-10 text-[13px] font-medium tracking-[0.18em] uppercase text-ink/80">
           {links.map((l) => (
@@ -188,7 +226,7 @@ function Hero() {
         <div aria-hidden className="pointer-events-none absolute bottom-16 left-10 w-56 h-56 rounded-full bg-rose-gold/10 blur-3xl" />
         <div className="relative max-w-xl">
           <p className="text-rose-gold text-xs md:text-[13px] uppercase tracking-[0.32em] font-medium">
-            Premium Nail Studio · Αθήνα
+            Nail Studio · Αθήνα
           </p>
           <div className="mt-5 h-[2px] w-[60px] bg-rose-gold" />
           <h1 className="mt-8 font-display font-light leading-[1.05] text-[56px] md:text-[72px] lg:text-[80px] tracking-tight">
@@ -219,7 +257,7 @@ function Hero() {
           <div className="mt-14 grid grid-cols-3 gap-6 max-w-md">
             {[
               { n: "500+", l: "Πελάτισσες" },
-              { n: "5★", l: "Google" },
+              { n: "4.7★", l: "Google" },
               { n: "24/7", l: "Online" },
             ].map((s) => (
               <div key={s.l}>
@@ -238,7 +276,7 @@ function Hero() {
 /* -------------------- RIBBON -------------------- */
 function Ribbon() {
   const text =
-    "PREMIUM NAIL ART · MANICURE · PEDICURE · GEL · ΗΜΙΜΟΝΙΜΟ · NAIL ART · LUMIÈRE NAILS · ΑΘΗΝΑ · ";
+    "PREMIUM NAIL ART · MANICURE · PEDICURE · GEL · ΗΜΙΜΟΝΙΜΟ · NAIL ART · NATALIA ΝΥΧΑΔΙΚΟ · ΑΘΗΝΑ · ";
   return (
     <section className="bg-ink py-8 overflow-hidden border-y border-rose-gold/20">
       <div className="flex whitespace-nowrap lumiere-marquee-track">
@@ -378,7 +416,7 @@ function About() {
             Εμπιστευτείτε τα Νύχιά σας σε Αληθινούς Καλλιτέχνες
           </h2>
           <p className="mt-8 text-ink/70 text-base leading-[1.8] max-w-lg">
-            Στο Lumière Nails πιστεύουμε ότι κάθε λεπτομέρεια μετράει. Χρησιμοποιούμε αποκλειστικά
+            Στο Natalia Νυχάδικο πιστεύουμε ότι κάθε λεπτομέρεια μετράει. Χρησιμοποιούμε αποκλειστικά
             premium προϊόντα και τεχνικές για να σας χαρίσουμε τέλεια αποτελέσματα κάθε φορά.
           </p>
           <div className="mt-10 flex flex-wrap gap-3">
@@ -395,6 +433,45 @@ function About() {
               </span>
             ))}
           </div>
+          <div className="mt-10 space-y-3 text-sm">
+            <a
+              href={BUSINESS.mapsUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-3 text-ink/70 hover:text-rose-gold transition-colors"
+            >
+              <MapPin size={16} className="text-rose-gold shrink-0" />
+              {BUSINESS.address}
+            </a>
+            <a
+              href={`tel:${BUSINESS.phoneTel}`}
+              className="flex items-center gap-3 text-ink/70 hover:text-rose-gold transition-colors"
+            >
+              <Phone size={16} className="text-rose-gold shrink-0" />
+              {BUSINESS.phone}
+            </a>
+            <div className="flex gap-3 pt-2">
+              <a
+                href={BUSINESS.instagram}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram"
+                className="inline-flex items-center gap-2 rounded-full border border-rose-gold text-rose-gold px-5 py-2 hover:bg-rose-gold hover:text-white transition-all"
+              >
+                <Instagram size={16} /> Instagram
+              </a>
+              <a
+                href={BUSINESS.facebook}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Facebook"
+                className="inline-flex items-center gap-2 rounded-full border border-rose-gold text-rose-gold px-5 py-2 hover:bg-rose-gold hover:text-white transition-all"
+              >
+                <Facebook size={16} /> Facebook
+              </a>
+            </div>
+          </div>
+
         </div>
       </div>
     </section>
@@ -447,8 +524,8 @@ function Services() {
 function Stats() {
   const items = [
     { n: "500+", l: "Ευχαριστημένες Πελάτισσες" },
-    { n: "5★", l: "Βαθμολογία Google" },
-    { n: "50+", l: "Διαθέσιμα Σχέδια" },
+    { n: "4.7★", l: "Βαθμολογία Google" },
+    { n: "62", l: "Κριτικές Google" },
     { n: "24/7", l: "Online Κράτηση" },
   ];
   return (
@@ -519,19 +596,6 @@ function Team() {
 
 /* -------------------- BOOKING -------------------- */
 function Booking() {
-  const [service, setService] = useState("");
-  const [artist, setArtist] = useState("");
-  const [date, setDate] = useState("");
-  const [slot, setSlot] = useState<string | null>(null);
-  const [name, setName] = useState("");
-  const [phone, setPhone] = useState("");
-  const [done, setDone] = useState(false);
-
-  const submit = (e: FormEvent) => {
-    e.preventDefault();
-    setDone(true);
-  };
-
   return (
     <section id="booking" className="bg-blush py-24 lg:py-32">
       <div className="mx-auto max-w-4xl px-6">
@@ -544,155 +608,37 @@ function Booking() {
           <p className="mt-4 text-ink/70">Online 24/7 — χωρίς τηλεφώνημα</p>
         </div>
 
-        <div className="mt-10 mx-auto max-w-2xl rounded-xl border border-rose-gold bg-white px-6 py-4 text-sm text-ink/80 text-center">
-          📌 Demo φόρμα — Σε πραγματικό site η κράτηση γίνεται αυτόματα
+        <div className="mt-10 bg-white rounded-2xl p-3 md:p-5 shadow-[0_25px_60px_-25px_rgba(183,110,121,0.35)]">
+          <iframe
+            title="Κράτηση ραντεβού — Natalia Νυχάδικο"
+            src={BUSINESS.booking}
+            className="block w-full rounded-xl border border-rose-gold/40"
+            height={700}
+            loading="lazy"
+          />
         </div>
 
-        <div className="mt-8 bg-white rounded-2xl p-8 md:p-12 shadow-[0_25px_60px_-25px_rgba(183,110,121,0.35)]">
-          {done ? (
-            <div className="text-center py-16">
-              <div className="text-5xl">✅</div>
-              <h3 className="mt-6 font-display text-3xl">Το ραντεβού σας καταχωρήθηκε!</h3>
-              <p className="mt-3 text-ink/60">
-                Θα λάβετε επιβεβαίωση σύντομα. Ευχαριστούμε που επιλέξατε το Lumière Nails.
-              </p>
-              <button
-                onClick={() => {
-                  setDone(false);
-                  setService("");
-                  setArtist("");
-                  setDate("");
-                  setSlot(null);
-                  setName("");
-                  setPhone("");
-                }}
-                className="mt-8 inline-flex items-center rounded-full bg-rose-gold text-white px-6 py-3 text-sm"
-              >
-                Νέα Κράτηση
-              </button>
-            </div>
-          ) : (
-            <form onSubmit={submit} className="space-y-6">
-              <div className="grid md:grid-cols-2 gap-6">
-                <Field label="Υπηρεσία">
-                  <select
-                    required
-                    value={service}
-                    onChange={(e) => setService(e.target.value)}
-                    className="lumiere-input"
-                  >
-                    <option value="">Επιλέξτε Υπηρεσία</option>
-                    {services.map((s) => (
-                      <option key={s.name} value={s.name}>
-                        {s.name} — {s.price}
-                      </option>
-                    ))}
-                  </select>
-                </Field>
-                <Field label="Τεχνίτρια">
-                  <select
-                    required
-                    value={artist}
-                    onChange={(e) => setArtist(e.target.value)}
-                    className="lumiere-input"
-                  >
-                    <option value="">Επιλέξτε Τεχνίτρια</option>
-                    <option>Μαρία</option>
-                    <option>Ελένη</option>
-                    <option>Σοφία</option>
-                    <option>Δεν έχω προτίμηση</option>
-                  </select>
-                </Field>
-              </div>
-              <Field label="Ημερομηνία">
-                <input
-                  type="date"
-                  required
-                  value={date}
-                  onChange={(e) => setDate(e.target.value)}
-                  className="lumiere-input accent-rose-gold"
-                />
-              </Field>
-              <Field label="Ώρα">
-                <div className="flex flex-wrap gap-2">
-                  {timeSlots.map((t) => (
-                    <button
-                      type="button"
-                      key={t}
-                      onClick={() => setSlot(t)}
-                      className={`rounded-full border px-5 py-2 text-sm transition-all ${
-                        slot === t
-                          ? "bg-rose-gold text-white border-rose-gold"
-                          : "bg-white text-ink border-rose-gold hover:bg-blush/40"
-                      }`}
-                    >
-                      {t}
-                    </button>
-                  ))}
-                </div>
-              </Field>
-              <div className="grid md:grid-cols-2 gap-6">
-                <Field label="Ονοματεπώνυμο">
-                  <input
-                    required
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
-                    placeholder="π.χ. Μαρία Παπαδοπούλου"
-                    className="lumiere-input"
-                  />
-                </Field>
-                <Field label="Τηλέφωνο">
-                  <input
-                    required
-                    value={phone}
-                    onChange={(e) => setPhone(e.target.value)}
-                    placeholder="6900000000"
-                    className="lumiere-input"
-                  />
-                </Field>
-              </div>
-              <button
-                type="submit"
-                className="w-full rounded-full bg-rose-gold text-white py-4 text-sm font-medium tracking-wide hover:bg-rose-gold/90 transition-all hover:-translate-y-0.5 inline-flex items-center justify-center gap-2 shadow-[0_15px_30px_-12px_rgba(183,110,121,0.6)]"
-              >
-                Επιβεβαίωση Ραντεβού <ArrowRight size={16} />
-              </button>
-            </form>
-          )}
+        <div className="mt-8 flex flex-wrap justify-center gap-4">
+          <a
+            href={BUSINESS.booking}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 rounded-full bg-rose-gold text-white px-7 py-3.5 text-sm font-medium hover:-translate-y-0.5 transition-all shadow-[0_15px_30px_-12px_rgba(183,110,121,0.6)]"
+          >
+            Κράτηση σε νέα καρτέλα <ArrowRight size={16} />
+          </a>
+          <a
+            href={`tel:${BUSINESS.phoneTel}`}
+            className="inline-flex items-center gap-2 rounded-full border border-rose-gold text-rose-gold bg-white px-7 py-3.5 text-sm font-medium hover:bg-rose-gold hover:text-white transition-all"
+          >
+            <Phone size={16} /> {BUSINESS.phone}
+          </a>
         </div>
       </div>
-
-      <style>{`
-        .lumiere-input {
-          width: 100%;
-          background: #fff;
-          border: 1px solid var(--rose-gold);
-          border-radius: 8px;
-          padding: 12px 14px;
-          font-family: var(--font-body);
-          font-size: 14px;
-          color: var(--ink);
-          transition: all 0.2s ease;
-          outline: none;
-        }
-        .lumiere-input:focus {
-          border-width: 2px;
-          padding: 11px 13px;
-          box-shadow: 0 0 0 4px rgba(183,110,121,0.15);
-        }
-      `}</style>
     </section>
   );
 }
 
-function Field({ label, children }: { label: string; children: React.ReactNode }) {
-  return (
-    <label className="block">
-      <span className="block mb-2 text-xs uppercase tracking-[0.2em] text-ink/70">{label}</span>
-      {children}
-    </label>
-  );
-}
 
 /* -------------------- GALLERY -------------------- */
 function Gallery() {
@@ -749,9 +695,38 @@ function Gallery() {
 }
 
 /* -------------------- REVIEWS -------------------- */
+function GoogleLogo({ className = "" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 48 48" className={className} aria-hidden>
+      <path fill="#4285F4" d="M45.1 24.5c0-1.6-.1-3.2-.4-4.7H24v9h11.9c-.5 2.8-2.1 5.1-4.4 6.7v5.5h7.1c4.2-3.8 6.5-9.5 6.5-16.5z" />
+      <path fill="#34A853" d="M24 46c5.9 0 10.9-2 14.6-5.3l-7.1-5.5c-2 1.3-4.5 2.1-7.5 2.1-5.8 0-10.7-3.9-12.4-9.1H4.3v5.7C8 41.3 15.4 46 24 46z" />
+      <path fill="#FBBC05" d="M11.6 28.2c-.5-1.3-.7-2.7-.7-4.2s.3-2.9.7-4.2v-5.7H4.3C2.8 17 2 20.4 2 24s.8 7 2.3 9.9l7.3-5.7z" />
+      <path fill="#EA4335" d="M24 10.7c3.2 0 6.1 1.1 8.4 3.3l6.3-6.3C34.9 4.1 29.9 2 24 2 15.4 2 8 6.7 4.3 14.1l7.3 5.7c1.7-5.2 6.6-9.1 12.4-9.1z" />
+    </svg>
+  );
+}
+
+function Stars({ value = 5, size = 16 }: { value?: number; size?: number }) {
+  return (
+    <div className="flex gap-1 text-gold">
+      {Array.from({ length: 5 }).map((_, i) => {
+        const fill = Math.max(0, Math.min(1, value - i));
+        return (
+          <span key={i} className="relative inline-block" style={{ width: size, height: size }}>
+            <Star size={size} className="absolute inset-0 text-gold/30" fill="currentColor" strokeWidth={0} />
+            <span className="absolute inset-0 overflow-hidden" style={{ width: `${fill * 100}%` }}>
+              <Star size={size} fill="currentColor" strokeWidth={0} />
+            </span>
+          </span>
+        );
+      })}
+    </div>
+  );
+}
+
 function Reviews() {
   return (
-    <section className="bg-ink py-24 lg:py-32">
+    <section id="reviews" className="bg-ink py-24 lg:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-10">
         <div className="text-center">
           <SectionLabel>Κριτικές</SectionLabel>
@@ -759,6 +734,14 @@ function Reviews() {
           <h2 className="mt-8 font-display font-light text-4xl md:text-5xl text-white">
             Τι Λένε οι Πελάτισσές μας
           </h2>
+          <div className="mt-8 inline-flex flex-wrap items-center justify-center gap-4 rounded-2xl border border-rose-gold/40 bg-white/5 px-6 py-4">
+            <GoogleLogo className="w-7 h-7" />
+            <span className="font-display text-4xl text-white leading-none">4.7</span>
+            <Stars value={4.7} size={20} />
+            <span className="rounded-full bg-rose-gold text-white text-[11px] uppercase tracking-[0.2em] px-4 py-1.5">
+              62 κριτικές στο Google
+            </span>
+          </div>
         </div>
         <div className="mt-16 grid md:grid-cols-3 gap-6">
           {reviews.map((r) => (
@@ -770,22 +753,32 @@ function Reviews() {
               <span className="absolute top-4 left-8 font-display text-rose-gold text-[80px] leading-none">
                 “
               </span>
-              <p className="text-white text-base leading-[1.8]">{r.text}</p>
-              <div className="mt-6 flex gap-1 text-rose-gold">
-                {Array.from({ length: 5 }).map((_, i) => (
-                  <Star key={i} size={16} fill="currentColor" strokeWidth={0} />
-                ))}
-              </div>
-              <div className="mt-4 text-rose-gold text-[11px] uppercase tracking-[0.25em]">
+              <GoogleLogo className="absolute top-8 right-8 w-5 h-5" />
+              <Stars value={r.stars} />
+              <p className="mt-5 text-white text-base leading-[1.8]">{r.text}</p>
+              <div className="mt-6 text-rose-gold text-[11px] uppercase tracking-[0.25em]">
                 {r.name}
               </div>
             </div>
           ))}
         </div>
+        <div className="mt-12 text-center">
+          <a
+            href="https://www.google.com/search?q=Natalia+νυχάδικο+Reviews"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-3 rounded-full bg-white text-ink px-7 py-3.5 text-sm font-medium hover:-translate-y-0.5 transition-all shadow-[0_15px_35px_-15px_rgba(255,255,255,0.4)]"
+          >
+            <GoogleLogo className="w-4 h-4" />
+            Δες όλες τις κριτικές στο Google
+            <ArrowRight size={16} />
+          </a>
+        </div>
       </div>
     </section>
   );
 }
+
 
 /* -------------------- FINAL CTA -------------------- */
 function FinalCTA() {
@@ -821,20 +814,24 @@ function Footer() {
       <div className="mx-auto max-w-7xl px-6 lg:px-10">
         <div className="grid md:grid-cols-4 gap-12">
           <div className="md:col-span-2">
-            <div className="font-display italic text-rose-gold text-3xl">Lumière Nails</div>
+            <div className="font-display italic text-rose-gold text-3xl">Natalia Νυχάδικο</div>
             <p className="mt-6 text-white/60 text-sm leading-relaxed max-w-sm">
-              Premium nail studio στην καρδιά της Αθήνας. Κάθε νύχι είναι έργο τέχνης.
+              Nail studio στην Αθήνα. Κάθε νύχι είναι έργο τέχνης.
             </p>
             <div className="mt-6 flex gap-3">
               <a
-                href="#"
+                href={BUSINESS.instagram}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full border border-rose-gold flex items-center justify-center text-rose-gold hover:bg-rose-gold hover:text-white transition-all"
                 aria-label="Instagram"
               >
                 <Instagram size={16} />
               </a>
               <a
-                href="#"
+                href={BUSINESS.facebook}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full border border-rose-gold flex items-center justify-center text-rose-gold hover:bg-rose-gold hover:text-white transition-all"
                 aria-label="Facebook"
               >
@@ -843,34 +840,46 @@ function Footer() {
             </div>
           </div>
           <div>
-            <div className="text-[11px] uppercase tracking-[0.25em] text-rose-gold">Πλοήγηση</div>
+            <div className="text-[11px] uppercase tracking-[0.25em] text-rose-gold">Ωράριο</div>
             <div className="mt-5 h-px w-10 bg-rose-gold" />
-            <ul className="mt-5 space-y-3 text-sm text-white/80">
-              <li><a href="#home" className="hover:text-rose-gold">Αρχική</a></li>
-              <li><a href="#services" className="hover:text-rose-gold">Υπηρεσίες</a></li>
-              <li><a href="#booking" className="hover:text-rose-gold">Κρατήσεις</a></li>
-              <li><a href="#contact" className="hover:text-rose-gold">Επικοινωνία</a></li>
+            <ul className="mt-5 space-y-2 text-sm text-white/80">
+              {BUSINESS.hours.map((h) => (
+                <li key={h.day} className="flex justify-between gap-4">
+                  <span>{h.day}</span>
+                  <span className={h.time === "Κλειστά" ? "text-white/40" : "text-rose-gold"}>
+                    {h.time}
+                  </span>
+                </li>
+              ))}
             </ul>
           </div>
           <div>
             <div className="text-[11px] uppercase tracking-[0.25em] text-rose-gold">Επικοινωνία</div>
             <div className="mt-5 h-px w-10 bg-rose-gold" />
             <ul className="mt-5 space-y-3 text-sm text-white/80">
-              <li className="flex items-start gap-3">
-                <MapPin size={16} className="text-rose-gold mt-0.5 shrink-0" />
-                Ερμού 45, Αθήνα 10563
+              <li>
+                <a
+                  href={BUSINESS.mapsUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-start gap-3 hover:text-rose-gold transition-colors"
+                >
+                  <MapPin size={16} className="text-rose-gold mt-0.5 shrink-0" />
+                  {BUSINESS.address}
+                </a>
               </li>
-              <li className="flex items-center gap-3">
-                <Phone size={16} className="text-rose-gold shrink-0" />
-                +30 210 000 0000
-              </li>
-              <li className="flex items-center gap-3">
-                <Mail size={16} className="text-rose-gold shrink-0" />
-                hello@lumierenails.gr
+              <li>
+                <a
+                  href={`tel:${BUSINESS.phoneTel}`}
+                  className="flex items-center gap-3 hover:text-rose-gold transition-colors"
+                >
+                  <Phone size={16} className="text-rose-gold shrink-0" />
+                  {BUSINESS.phone}
+                </a>
               </li>
             </ul>
             <a
-              href="https://www.google.com/maps/dir/?api=1&destination=Ermou+45,+Athens+10563,+Greece"
+              href={BUSINESS.mapsUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="mt-5 inline-flex items-center gap-2 rounded-full border border-rose-gold text-rose-gold px-4 py-2 text-xs uppercase tracking-[0.2em] hover:bg-rose-gold hover:text-white transition-all"
@@ -881,8 +890,8 @@ function Footer() {
         </div>
         <div className="mt-14 rounded-2xl overflow-hidden border border-rose-gold/40 shadow-[0_25px_60px_-30px_rgba(183,110,121,0.6)]">
           <iframe
-            title="Lumière Nails — Ερμού 45, Αθήνα"
-            src="https://www.google.com/maps?q=Ermou+45,+Athens+10563,+Greece&output=embed"
+            title="Natalia Νυχάδικο — Pithias 55, Αθήνα"
+            src="https://www.google.com/maps?q=Pithias+55,+Athina+113+64&output=embed"
             width="100%"
             height="320"
             loading="lazy"
@@ -892,9 +901,10 @@ function Footer() {
         </div>
         <div className="mt-16 h-px bg-rose-gold/40" />
         <p className="mt-6 text-center text-xs text-white/40">
-          © 2026 Lumière Nails. All rights reserved.
+          © 2026 Natalia Νυχάδικο. All rights reserved.
         </p>
       </div>
     </footer>
+
   );
 }
