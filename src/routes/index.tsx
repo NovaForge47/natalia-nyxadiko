@@ -277,7 +277,7 @@ function RoseLine({ center = false }: { center?: boolean }) {
 function About() {
   return (
     <section className="bg-white py-24 lg:py-32">
-      <div className="mx-auto max-w-7xl px-6 lg:px-10 max-w-3xl">
+      <div className="mx-auto max-w-3xl px-6 lg:px-10">
         <div>
           <SectionLabel>Το Studio μας</SectionLabel>
           <RoseLine />
