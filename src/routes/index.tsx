@@ -2,14 +2,12 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
 import heroHand from "@/assets/hero-hand.jpg";
 import {
-  Sparkles,
   ArrowRight,
   ArrowDown,
   Plus,
   Star,
   MapPin,
   Phone,
-  Mail,
   Instagram,
   Facebook,
   Menu,
