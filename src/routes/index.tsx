@@ -749,9 +749,38 @@ function Gallery() {
 }
 
 /* -------------------- REVIEWS -------------------- */
+function GoogleLogo({ className = "" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 48 48" className={className} aria-hidden>
+      <path fill="#4285F4" d="M45.1 24.5c0-1.6-.1-3.2-.4-4.7H24v9h11.9c-.5 2.8-2.1 5.1-4.4 6.7v5.5h7.1c4.2-3.8 6.5-9.5 6.5-16.5z" />
+      <path fill="#34A853" d="M24 46c5.9 0 10.9-2 14.6-5.3l-7.1-5.5c-2 1.3-4.5 2.1-7.5 2.1-5.8 0-10.7-3.9-12.4-9.1H4.3v5.7C8 41.3 15.4 46 24 46z" />
+      <path fill="#FBBC05" d="M11.6 28.2c-.5-1.3-.7-2.7-.7-4.2s.3-2.9.7-4.2v-5.7H4.3C2.8 17 2 20.4 2 24s.8 7 2.3 9.9l7.3-5.7z" />
+      <path fill="#EA4335" d="M24 10.7c3.2 0 6.1 1.1 8.4 3.3l6.3-6.3C34.9 4.1 29.9 2 24 2 15.4 2 8 6.7 4.3 14.1l7.3 5.7c1.7-5.2 6.6-9.1 12.4-9.1z" />
+    </svg>
+  );
+}
+
+function Stars({ value = 5, size = 16 }: { value?: number; size?: number }) {
+  return (
+    <div className="flex gap-1 text-gold">
+      {Array.from({ length: 5 }).map((_, i) => {
+        const fill = Math.max(0, Math.min(1, value - i));
+        return (
+          <span key={i} className="relative inline-block" style={{ width: size, height: size }}>
+            <Star size={size} className="absolute inset-0 text-gold/30" fill="currentColor" strokeWidth={0} />
+            <span className="absolute inset-0 overflow-hidden" style={{ width: `${fill * 100}%` }}>
+              <Star size={size} fill="currentColor" strokeWidth={0} />
+            </span>
+          </span>
+        );
+      })}
+    </div>
+  );
+}
+
 function Reviews() {
   return (
-    <section className="bg-ink py-24 lg:py-32">
+    <section id="reviews" className="bg-ink py-24 lg:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-10">
         <div className="text-center">
           <SectionLabel>Κριτικές</SectionLabel>
@@ -759,6 +788,14 @@ function Reviews() {
           <h2 className="mt-8 font-display font-light text-4xl md:text-5xl text-white">
             Τι Λένε οι Πελάτισσές μας
           </h2>
+          <div className="mt-8 inline-flex flex-wrap items-center justify-center gap-4 rounded-2xl border border-rose-gold/40 bg-white/5 px-6 py-4">
+            <GoogleLogo className="w-7 h-7" />
+            <span className="font-display text-4xl text-white leading-none">4.7</span>
+            <Stars value={4.7} size={20} />
+            <span className="rounded-full bg-rose-gold text-white text-[11px] uppercase tracking-[0.2em] px-4 py-1.5">
+              62 κριτικές στο Google
+            </span>
+          </div>
         </div>
         <div className="mt-16 grid md:grid-cols-3 gap-6">
           {reviews.map((r) => (
@@ -770,22 +807,32 @@ function Reviews() {
               <span className="absolute top-4 left-8 font-display text-rose-gold text-[80px] leading-none">
                 “
               </span>
-              <p className="text-white text-base leading-[1.8]">{r.text}</p>
-              <div className="mt-6 flex gap-1 text-rose-gold">
-                {Array.from({ length: 5 }).map((_, i) => (
-                  <Star key={i} size={16} fill="currentColor" strokeWidth={0} />
-                ))}
-              </div>
-              <div className="mt-4 text-rose-gold text-[11px] uppercase tracking-[0.25em]">
+              <GoogleLogo className="absolute top-8 right-8 w-5 h-5" />
+              <Stars value={r.stars} />
+              <p className="mt-5 text-white text-base leading-[1.8]">{r.text}</p>
+              <div className="mt-6 text-rose-gold text-[11px] uppercase tracking-[0.25em]">
                 {r.name}
               </div>
             </div>
           ))}
         </div>
+        <div className="mt-12 text-center">
+          <a
+            href="https://www.google.com/search?q=Natalia+νυχάδικο+Reviews"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-3 rounded-full bg-white text-ink px-7 py-3.5 text-sm font-medium hover:-translate-y-0.5 transition-all shadow-[0_15px_35px_-15px_rgba(255,255,255,0.4)]"
+          >
+            <GoogleLogo className="w-4 h-4" />
+            Δες όλες τις κριτικές στο Google
+            <ArrowRight size={16} />
+          </a>
+        </div>
       </div>
     </section>
   );
 }
+
 
 /* -------------------- FINAL CTA -------------------- */
 function FinalCTA() {
