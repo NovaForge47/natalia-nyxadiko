@@ -1,9 +1,13 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import heroHand from "@/assets/hero-hand.jpg";
+import nail1 from "@/assets/gallery/nail-1.png.asset.json";
+import nail2 from "@/assets/gallery/nail-2.png.asset.json";
+import nail3 from "@/assets/gallery/nail-3.png.asset.json";
+import nail4 from "@/assets/gallery/nail-4.png.asset.json";
+import nail5 from "@/assets/gallery/nail-5.png.asset.json";
 import {
   ArrowRight,
-  Plus,
   Star,
   MapPin,
   Phone,
@@ -254,99 +258,6 @@ function Ribbon() {
 }
 
 /* -------------------- ABOUT -------------------- */
-function BeforeAfter() {
-  const [pos, setPos] = useState(50);
-  const ref = useRef<HTMLDivElement>(null);
-  const dragging = useRef(false);
-
-  const setFromClientX = (clientX: number) => {
-    const el = ref.current;
-    if (!el) return;
-    const r = el.getBoundingClientRect();
-    const p = ((clientX - r.left) / r.width) * 100;
-    setPos(Math.max(0, Math.min(100, p)));
-  };
-
-  useEffect(() => {
-    const move = (e: MouseEvent | TouchEvent) => {
-      if (!dragging.current) return;
-      const x = "touches" in e ? e.touches[0].clientX : (e as MouseEvent).clientX;
-      setFromClientX(x);
-    };
-    const up = () => (dragging.current = false);
-    window.addEventListener("mousemove", move);
-    window.addEventListener("touchmove", move);
-    window.addEventListener("mouseup", up);
-    window.addEventListener("touchend", up);
-    return () => {
-      window.removeEventListener("mousemove", move);
-      window.removeEventListener("touchmove", move);
-      window.removeEventListener("mouseup", up);
-      window.removeEventListener("touchend", up);
-    };
-  }, []);
-
-  const before =
-    "https://images.unsplash.com/photo-1519014816548-bf5fe059798b?w=900&auto=format&fit=crop";
-  const after =
-    "https://images.unsplash.com/photo-1604654894610-df63bc536371?w=900&auto=format&fit=crop";
-
-  return (
-    <div className="w-full max-w-xl mx-auto">
-      <div
-        ref={ref}
-        className="relative aspect-square w-full overflow-hidden rounded-sm border-2 border-rose-gold select-none touch-none cursor-ew-resize"
-        onMouseDown={(e) => {
-          dragging.current = true;
-          setFromClientX(e.clientX);
-        }}
-        onTouchStart={(e) => {
-          dragging.current = true;
-          setFromClientX(e.touches[0].clientX);
-        }}
-      >
-        <img
-          src={before}
-          alt="Πριν"
-          className="absolute inset-0 w-full h-full object-cover pointer-events-none"
-          draggable={false}
-        />
-        <div
-          className="absolute inset-0 overflow-hidden pointer-events-none"
-          style={{ clipPath: `inset(0 0 0 ${pos}%)` }}
-        >
-          <img
-            src={after}
-            alt="Μετά"
-            className="w-full h-full object-cover"
-            draggable={false}
-          />
-        </div>
-        <div
-          className="absolute top-0 bottom-0 w-[2px] bg-white shadow-[0_0_12px_rgba(0,0,0,0.3)] pointer-events-none"
-          style={{ left: `${pos}%` }}
-        />
-        <div
-          className="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-11 h-11 rounded-full bg-white border-2 border-rose-gold flex items-center justify-center shadow-lg pointer-events-none"
-          style={{ left: `${pos}%` }}
-        >
-          <ArrowRight size={14} className="text-rose-gold -mr-1" />
-          <ArrowRight size={14} className="text-rose-gold rotate-180 -ml-1" />
-        </div>
-        <span className="absolute top-4 left-4 rounded-full bg-ink/70 text-white text-[10px] uppercase tracking-[0.25em] px-3 py-1">
-          Πριν
-        </span>
-        <span className="absolute top-4 right-4 rounded-full bg-rose-gold text-white text-[10px] uppercase tracking-[0.25em] px-3 py-1">
-          Μετά
-        </span>
-      </div>
-      <p className="mt-4 text-center text-xs text-ink/50 uppercase tracking-[0.2em]">
-        Σύρετε για να δείτε τη διαφορά
-      </p>
-    </div>
-  );
-}
-
 function SectionLabel({ children, dark = false }: { children: React.ReactNode; dark?: boolean }) {
   return (
     <p
@@ -366,8 +277,7 @@ function RoseLine({ center = false }: { center?: boolean }) {
 function About() {
   return (
     <section className="bg-white py-24 lg:py-32">
-      <div className="mx-auto max-w-7xl px-6 lg:px-10 grid lg:grid-cols-2 gap-14 lg:gap-20 items-center">
-        <BeforeAfter />
+      <div className="mx-auto max-w-3xl px-6 lg:px-10">
         <div>
           <SectionLabel>Το Studio μας</SectionLabel>
           <RoseLine />
@@ -494,14 +404,6 @@ function Booking() {
 
         <div className="mt-8 flex flex-wrap justify-center gap-4">
           <a
-            href={BUSINESS.booking}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 rounded-full bg-rose-gold text-white px-7 py-3.5 text-sm font-medium hover:-translate-y-0.5 transition-all shadow-[0_15px_30px_-12px_rgba(183,110,121,0.6)]"
-          >
-            Κράτηση σε νέα καρτέλα <ArrowRight size={16} />
-          </a>
-          <a
             href={`tel:${BUSINESS.phoneTel}`}
             className="inline-flex items-center gap-2 rounded-full border border-rose-gold text-rose-gold bg-white px-7 py-3.5 text-sm font-medium hover:bg-rose-gold hover:text-white transition-all"
           >
@@ -516,23 +418,16 @@ function Booking() {
 
 /* -------------------- GALLERY -------------------- */
 function Gallery() {
-  const tiles = [
-    {
-      h: "aspect-[4/5]",
-      src: "https://images.unsplash.com/photo-1604654894610-df63bc536371?w=900&auto=format&fit=crop",
-      alt: "Ροζ ημιμόνιμο manicure",
-    },
-    {
-      h: "aspect-square",
-      src: "https://images.unsplash.com/photo-1632345031435-8727f6897d53?w=900&auto=format&fit=crop",
-      alt: "Nail art λεπτομέρεια",
-    },
-    {
-      h: "aspect-[4/5]",
-      src: "https://images.unsplash.com/photo-1610992015732-2449b76344bc?w=900&auto=format&fit=crop",
-      alt: "Gel manicure φινίρισμα",
-    },
+  const slides = [
+    { src: nail1.url, alt: "Nail art με μαργαρίτες σε κίτρινο γαλλικό" },
+    { src: nail2.url, alt: "Chrome nail art σε nude βάση" },
+    { src: nail3.url, alt: "Μπλε νύχια με σχέδια κινουμένων σχεδίων" },
+    { src: nail4.url, alt: "Κλασικό γαλλικό manicure" },
+    { src: nail5.url, alt: "Μπλε νύχια με πεταλούδες" },
   ];
+  const [idx, setIdx] = useState(0);
+  const go = (d: number) => setIdx((i) => (i + d + slides.length) % slides.length);
+
   return (
     <section className="bg-white py-24 lg:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-10">
@@ -543,30 +438,56 @@ function Gallery() {
             Η Τέχνη μας Μιλά Μόνη της
           </h2>
         </div>
-        <div className="mt-16 columns-1 sm:columns-2 lg:columns-3 gap-6 [column-fill:_balance]">
-          {tiles.map((t, i) => (
-            <div
-              key={i}
-              className={`mb-6 break-inside-avoid relative group overflow-hidden rounded-xl border border-rose-gold ${t.h} bg-blush`}
-            >
+
+        <div className="mt-14 mx-auto max-w-2xl">
+          <div className="relative aspect-square overflow-hidden rounded-xl border border-rose-gold bg-blush">
+            {slides.map((s, i) => (
               <img
-                src={t.src}
-                alt={t.alt}
-                loading="lazy"
-                className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                key={s.src}
+                src={s.src}
+                alt={s.alt}
+                loading={i === 0 ? "eager" : "lazy"}
+                className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${
+                  i === idx ? "opacity-100" : "opacity-0"
+                }`}
               />
-              <div className="absolute inset-0 bg-rose-gold/0 group-hover:bg-rose-gold/30 transition-all duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100">
-                <div className="w-14 h-14 rounded-full bg-white/90 flex items-center justify-center">
-                  <Plus className="text-rose-gold" size={26} />
-                </div>
-              </div>
-            </div>
-          ))}
+            ))}
+            <button
+              type="button"
+              onClick={() => go(-1)}
+              aria-label="Προηγούμενη φωτογραφία"
+              className="absolute left-3 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-white/90 text-rose-gold flex items-center justify-center shadow-lg hover:bg-white transition"
+            >
+              <ArrowRight size={18} className="rotate-180" />
+            </button>
+            <button
+              type="button"
+              onClick={() => go(1)}
+              aria-label="Επόμενη φωτογραφία"
+              className="absolute right-3 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-white/90 text-rose-gold flex items-center justify-center shadow-lg hover:bg-white transition"
+            >
+              <ArrowRight size={18} />
+            </button>
+          </div>
+          <div className="mt-6 flex justify-center gap-2.5">
+            {slides.map((s, i) => (
+              <button
+                key={s.src}
+                type="button"
+                onClick={() => setIdx(i)}
+                aria-label={`Φωτογραφία ${i + 1}`}
+                className={`h-2 rounded-full transition-all ${
+                  i === idx ? "w-7 bg-rose-gold" : "w-2 bg-rose-gold/30"
+                }`}
+              />
+            ))}
+          </div>
         </div>
       </div>
     </section>
   );
 }
+
 
 /* -------------------- REVIEWS -------------------- */
 function GoogleLogo({ className = "" }: { className?: string }) {
