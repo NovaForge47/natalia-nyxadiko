@@ -435,6 +435,45 @@ function About() {
               </span>
             ))}
           </div>
+          <div className="mt-10 space-y-3 text-sm">
+            <a
+              href={BUSINESS.mapsUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-3 text-ink/70 hover:text-rose-gold transition-colors"
+            >
+              <MapPin size={16} className="text-rose-gold shrink-0" />
+              {BUSINESS.address}
+            </a>
+            <a
+              href={`tel:${BUSINESS.phoneTel}`}
+              className="flex items-center gap-3 text-ink/70 hover:text-rose-gold transition-colors"
+            >
+              <Phone size={16} className="text-rose-gold shrink-0" />
+              {BUSINESS.phone}
+            </a>
+            <div className="flex gap-3 pt-2">
+              <a
+                href={BUSINESS.instagram}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram"
+                className="inline-flex items-center gap-2 rounded-full border border-rose-gold text-rose-gold px-5 py-2 hover:bg-rose-gold hover:text-white transition-all"
+              >
+                <Instagram size={16} /> Instagram
+              </a>
+              <a
+                href={BUSINESS.facebook}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Facebook"
+                className="inline-flex items-center gap-2 rounded-full border border-rose-gold text-rose-gold px-5 py-2 hover:bg-rose-gold hover:text-white transition-all"
+              >
+                <Facebook size={16} /> Facebook
+              </a>
+            </div>
+          </div>
+
         </div>
       </div>
     </section>
