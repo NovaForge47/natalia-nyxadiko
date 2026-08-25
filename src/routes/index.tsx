@@ -36,38 +36,6 @@ export const Route = createFileRoute("/")({
 });
 
 
-const services = [
-  { icon: "💅", name: "Manicure Απλό", duration: "45 λεπτά", price: "€15" },
-  { icon: "✨", name: "Manicure Gel", duration: "60 λεπτά", price: "€25" },
-  { icon: "💎", name: "Ημιμόνιμο", duration: "75 λεπτά", price: "€30" },
-  { icon: "🌸", name: "Pedicure Απλό", duration: "60 λεπτά", price: "€20" },
-  { icon: "👑", name: "Pedicure Gel", duration: "75 λεπτά", price: "€35" },
-  { icon: "🎨", name: "Nail Art", duration: "15 λεπτά/νύχι", price: "€5" },
-];
-
-const team = [
-  {
-    name: "Μαρία",
-    title: "Senior Nail Artist",
-    exp: "5 χρόνια εμπειρία",
-    photo:
-      "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=600&h=600&fit=crop&crop=faces",
-  },
-  {
-    name: "Ελένη",
-    title: "Gel & Nail Art Specialist",
-    exp: "3 χρόνια εμπειρία",
-    photo:
-      "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=600&h=600&fit=crop&crop=faces",
-  },
-  {
-    name: "Σοφία",
-    title: "Pedicure Expert",
-    exp: "4 χρόνια εμπειρία",
-    photo:
-      "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=600&h=600&fit=crop&crop=faces",
-  },
-];
 
 const BUSINESS = {
   name: "Natalia Νυχάδικο",
@@ -115,9 +83,7 @@ function LumierePage() {
       <Hero />
       <Ribbon />
       <About />
-      <Services />
       <Stats />
-      <Team />
       <Booking />
       <Gallery />
       <Reviews />
@@ -140,7 +106,7 @@ function Nav() {
 
   const links = [
     { href: "#home", label: "Αρχική" },
-    { href: "#services", label: "Υπηρεσίες" },
+    
     { href: "#booking", label: "Κρατήσεις" },
     { href: "#contact", label: "Επικοινωνία" },
   ];
@@ -246,12 +212,6 @@ function Hero() {
               className="inline-flex items-center gap-2 rounded-full bg-rose-gold text-white px-7 py-3.5 text-sm font-medium hover:-translate-y-1 hover:bg-rose-gold/90 transition-all shadow-[0_15px_30px_-12px_rgba(183,110,121,0.7)]"
             >
               Κλείστε Ραντεβού <ArrowRight size={16} />
-            </a>
-            <a
-              href="#services"
-              className="inline-flex items-center gap-2 rounded-full border border-white/70 text-white px-7 py-3.5 text-sm font-medium hover:-translate-y-1 hover:bg-white hover:text-ink transition-all"
-            >
-              Δείτε τις Υπηρεσίες <ArrowDown size={16} />
             </a>
           </div>
           <div className="mt-14 grid grid-cols-3 gap-6 max-w-md">
@@ -478,47 +438,6 @@ function About() {
   );
 }
 
-/* -------------------- SERVICES -------------------- */
-function Services() {
-  return (
-    <section id="services" className="bg-blush py-24 lg:py-32">
-      <div className="mx-auto max-w-7xl px-6 lg:px-10">
-        <div className="text-center">
-          <SectionLabel dark>Υπηρεσίες</SectionLabel>
-          <RoseLine center />
-          <h2 className="mt-8 font-display font-light text-4xl md:text-5xl">Οι Υπηρεσίες μας</h2>
-          <p className="mt-4 text-ink/70">Κάθε υπηρεσία, μια μοναδική εμπειρία</p>
-        </div>
-        <div className="mt-16 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {services.map((s) => (
-            <div
-              key={s.name}
-              className="group bg-white rounded-xl border border-rose-gold p-8 shadow-[0_10px_30px_-20px_rgba(183,110,121,0.5)] transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_25px_45px_-15px_rgba(183,110,121,0.55)] hover:border-2"
-            >
-              <div className="text-4xl text-rose-gold">{s.icon}</div>
-              <h3 className="mt-6 font-display text-2xl">{s.name}</h3>
-              <p className="mt-2 text-sm text-ink/60">{s.duration}</p>
-              <div className="mt-4 h-7 relative overflow-hidden">
-                <p className="absolute inset-0 text-sm text-ink/50 italic transition-all duration-300 group-hover:-translate-y-full group-hover:opacity-0">
-                  Δείτε την τιμή →
-                </p>
-                <p className="absolute inset-0 font-bold text-xl text-rose-gold translate-y-full opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
-                  {s.price}
-                </p>
-              </div>
-              <a
-                href="#booking"
-                className="mt-6 inline-flex items-center gap-1 text-rose-gold text-sm hover:underline"
-              >
-                Κράτηση <ArrowRight size={14} />
-              </a>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
 
 /* -------------------- STATS -------------------- */
 function Stats() {
@@ -549,50 +468,6 @@ function Stats() {
   );
 }
 
-/* -------------------- TEAM -------------------- */
-function Team() {
-  return (
-    <section className="bg-white py-24 lg:py-32">
-      <div className="mx-auto max-w-7xl px-6 lg:px-10">
-        <div className="text-center">
-          <SectionLabel>Η Ομάδα μας</SectionLabel>
-          <RoseLine center />
-          <h2 className="mt-8 font-display font-light text-4xl md:text-5xl">
-            Οι Καλλιτέχνες μας
-          </h2>
-        </div>
-        <div className="mt-16 grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-          {team.map((m) => (
-            <div
-              key={m.name}
-              className="bg-white rounded-2xl shadow-[0_15px_35px_-20px_rgba(0,0,0,0.15)] p-10 text-center transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_25px_50px_-20px_rgba(183,110,121,0.4)]"
-            >
-              <div className="mx-auto w-32 h-32 rounded-full ring-[3px] ring-rose-gold ring-offset-4 ring-offset-white overflow-hidden">
-                <img
-                  src={m.photo}
-                  alt={m.name}
-                  className="w-full h-full object-cover"
-                  loading="lazy"
-                />
-              </div>
-              <h3 className="mt-8 font-display italic text-3xl">{m.name}</h3>
-              <p className="mt-2 text-rose-gold text-[11px] uppercase tracking-[0.25em]">
-                {m.title}
-              </p>
-              <p className="mt-3 text-sm text-ink/60">{m.exp}</p>
-              <a
-                href="#booking"
-                className="mt-8 inline-flex items-center rounded-full bg-rose-gold text-white px-6 py-2.5 text-sm hover:bg-rose-gold/90 transition-all"
-              >
-                Κλείστε Ραντεβού
-              </a>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
 
 /* -------------------- BOOKING -------------------- */
 function Booking() {
