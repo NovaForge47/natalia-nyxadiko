@@ -241,7 +241,7 @@ function Hero() {
           <div className="mt-14 grid grid-cols-3 gap-6 max-w-md">
             {[
               { n: "500+", l: "Πελάτισσες" },
-              { n: "5★", l: "Google" },
+              { n: "4.7★", l: "Google" },
               { n: "24/7", l: "Online" },
             ].map((s) => (
               <div key={s.l}>
@@ -469,8 +469,8 @@ function Services() {
 function Stats() {
   const items = [
     { n: "500+", l: "Ευχαριστημένες Πελάτισσες" },
-    { n: "5★", l: "Βαθμολογία Google" },
-    { n: "50+", l: "Διαθέσιμα Σχέδια" },
+    { n: "4.7★", l: "Βαθμολογία Google" },
+    { n: "62", l: "Κριτικές Google" },
     { n: "24/7", l: "Online Κράτηση" },
   ];
   return (
