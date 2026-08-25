@@ -3,7 +3,6 @@ import { useEffect, useRef, useState } from "react";
 import heroHand from "@/assets/hero-hand.jpg";
 import {
   ArrowRight,
-  ArrowDown,
   Plus,
   Star,
   MapPin,
