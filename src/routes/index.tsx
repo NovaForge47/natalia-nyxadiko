@@ -18,7 +18,25 @@ import {
 
 export const Route = createFileRoute("/")({
   component: LumierePage,
+  head: () => ({
+    meta: [
+      { title: "Natalia Νυχάδικο — Nail Salon στην Αθήνα | 4.7★ στο Google" },
+      {
+        name: "description",
+        content:
+          "Natalia Νυχάδικο, Pithias 55, Αθήνα. Manicure, pedicure, ημιμόνιμο και nail art. 4.7★ από 62 κριτικές στο Google. Κλείστε ραντεβού online.",
+      },
+      { property: "og:title", content: "Natalia Νυχάδικο — Nail Salon στην Αθήνα" },
+      {
+        property: "og:description",
+        content: "Pithias 55, Αθήνα · 695 755 7554 · Online κρατήσεις 24/7.",
+      },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+    ],
+  }),
 });
+
 
 const services = [
   { icon: "💅", name: "Manicure Απλό", duration: "45 λεπτά", price: "€15" },
