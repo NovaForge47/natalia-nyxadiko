@@ -516,23 +516,16 @@ function Booking() {
 
 /* -------------------- GALLERY -------------------- */
 function Gallery() {
-  const tiles = [
-    {
-      h: "aspect-[4/5]",
-      src: "https://images.unsplash.com/photo-1604654894610-df63bc536371?w=900&auto=format&fit=crop",
-      alt: "Ροζ ημιμόνιμο manicure",
-    },
-    {
-      h: "aspect-square",
-      src: "https://images.unsplash.com/photo-1632345031435-8727f6897d53?w=900&auto=format&fit=crop",
-      alt: "Nail art λεπτομέρεια",
-    },
-    {
-      h: "aspect-[4/5]",
-      src: "https://images.unsplash.com/photo-1610992015732-2449b76344bc?w=900&auto=format&fit=crop",
-      alt: "Gel manicure φινίρισμα",
-    },
+  const slides = [
+    { src: nail1.url, alt: "Nail art με μαργαρίτες σε κίτρινο γαλλικό" },
+    { src: nail2.url, alt: "Chrome nail art σε nude βάση" },
+    { src: nail3.url, alt: "Μπλε νύχια με σχέδια κινουμένων σχεδίων" },
+    { src: nail4.url, alt: "Κλασικό γαλλικό manicure" },
+    { src: nail5.url, alt: "Μπλε νύχια με πεταλούδες" },
   ];
+  const [idx, setIdx] = useState(0);
+  const go = (d: number) => setIdx((i) => (i + d + slides.length) % slides.length);
+
   return (
     <section className="bg-white py-24 lg:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-10">
@@ -543,30 +536,56 @@ function Gallery() {
             Η Τέχνη μας Μιλά Μόνη της
           </h2>
         </div>
-        <div className="mt-16 columns-1 sm:columns-2 lg:columns-3 gap-6 [column-fill:_balance]">
-          {tiles.map((t, i) => (
-            <div
-              key={i}
-              className={`mb-6 break-inside-avoid relative group overflow-hidden rounded-xl border border-rose-gold ${t.h} bg-blush`}
-            >
+
+        <div className="mt-14 mx-auto max-w-2xl">
+          <div className="relative aspect-square overflow-hidden rounded-xl border border-rose-gold bg-blush">
+            {slides.map((s, i) => (
               <img
-                src={t.src}
-                alt={t.alt}
-                loading="lazy"
-                className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                key={s.src}
+                src={s.src}
+                alt={s.alt}
+                loading={i === 0 ? "eager" : "lazy"}
+                className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${
+                  i === idx ? "opacity-100" : "opacity-0"
+                }`}
               />
-              <div className="absolute inset-0 bg-rose-gold/0 group-hover:bg-rose-gold/30 transition-all duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100">
-                <div className="w-14 h-14 rounded-full bg-white/90 flex items-center justify-center">
-                  <Plus className="text-rose-gold" size={26} />
-                </div>
-              </div>
-            </div>
-          ))}
+            ))}
+            <button
+              type="button"
+              onClick={() => go(-1)}
+              aria-label="Προηγούμενη φωτογραφία"
+              className="absolute left-3 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-white/90 text-rose-gold flex items-center justify-center shadow-lg hover:bg-white transition"
+            >
+              <ArrowRight size={18} className="rotate-180" />
+            </button>
+            <button
+              type="button"
+              onClick={() => go(1)}
+              aria-label="Επόμενη φωτογραφία"
+              className="absolute right-3 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-white/90 text-rose-gold flex items-center justify-center shadow-lg hover:bg-white transition"
+            >
+              <ArrowRight size={18} />
+            </button>
+          </div>
+          <div className="mt-6 flex justify-center gap-2.5">
+            {slides.map((s, i) => (
+              <button
+                key={s.src}
+                type="button"
+                onClick={() => setIdx(i)}
+                aria-label={`Φωτογραφία ${i + 1}`}
+                className={`h-2 rounded-full transition-all ${
+                  i === idx ? "w-7 bg-rose-gold" : "w-2 bg-rose-gold/30"
+                }`}
+              />
+            ))}
+          </div>
         </div>
       </div>
     </section>
   );
 }
+
 
 /* -------------------- REVIEWS -------------------- */
 function GoogleLogo({ className = "" }: { className?: string }) {
