@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import heroHand from "@/assets/hero-hand.jpg";
 import nail1 from "@/assets/gallery/nail-1.png.asset.json";
 import nail2 from "@/assets/gallery/nail-2.png.asset.json";
