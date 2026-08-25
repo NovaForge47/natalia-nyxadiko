@@ -77,10 +77,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lumière Nails — Premium Nail Studio στην Αθήνα" },
+      { title: "Natalia Νυχάδικο — Nail Studio στην Αθήνα" },
       { name: "description", content: "Premium nail studio στην Αθήνα. Manicure, pedicure, ημιμόνιμο και nail art από πιστοποιημένες τεχνίτριες. Κλείστε ραντεβού online 24/7." },
-      { name: "author", content: "Lumière Nails" },
-      { property: "og:title", content: "Lumière Nails — Premium Nail Studio στην Αθήνα" },
+      { name: "author", content: "Natalia Νυχάδικο" },
+      { property: "og:title", content: "Natalia Νυχάδικο — Nail Studio στην Αθήνα" },
       { property: "og:description", content: "Η τέχνη στα νύχια σας. Premium nail studio στην καρδιά της Αθήνας." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
