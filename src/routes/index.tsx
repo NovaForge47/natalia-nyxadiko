@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useEffect, useRef, useState, type FormEvent } from "react";
+import { useEffect, useRef, useState } from "react";
 import heroHand from "@/assets/hero-hand.jpg";
 import {
   Sparkles,
@@ -140,7 +140,7 @@ function Nav() {
           href="#home"
           className="font-display italic text-2xl md:text-3xl text-rose-gold tracking-tight truncate"
         >
-          Lumière Nails
+          Natalia Νυχάδικο
         </a>
         <nav className="hidden md:flex items-center justify-center gap-10 text-[13px] font-medium tracking-[0.18em] uppercase text-ink/80">
           {links.map((l) => (
@@ -210,7 +210,7 @@ function Hero() {
         <div aria-hidden className="pointer-events-none absolute bottom-16 left-10 w-56 h-56 rounded-full bg-rose-gold/10 blur-3xl" />
         <div className="relative max-w-xl">
           <p className="text-rose-gold text-xs md:text-[13px] uppercase tracking-[0.32em] font-medium">
-            Premium Nail Studio · Αθήνα
+            Nail Studio · Αθήνα
           </p>
           <div className="mt-5 h-[2px] w-[60px] bg-rose-gold" />
           <h1 className="mt-8 font-display font-light leading-[1.05] text-[56px] md:text-[72px] lg:text-[80px] tracking-tight">
@@ -260,7 +260,7 @@ function Hero() {
 /* -------------------- RIBBON -------------------- */
 function Ribbon() {
   const text =
-    "PREMIUM NAIL ART · MANICURE · PEDICURE · GEL · ΗΜΙΜΟΝΙΜΟ · NAIL ART · LUMIÈRE NAILS · ΑΘΗΝΑ · ";
+    "PREMIUM NAIL ART · MANICURE · PEDICURE · GEL · ΗΜΙΜΟΝΙΜΟ · NAIL ART · NATALIA ΝΥΧΑΔΙΚΟ · ΑΘΗΝΑ · ";
   return (
     <section className="bg-ink py-8 overflow-hidden border-y border-rose-gold/20">
       <div className="flex whitespace-nowrap lumiere-marquee-track">
@@ -400,7 +400,7 @@ function About() {
             Εμπιστευτείτε τα Νύχιά σας σε Αληθινούς Καλλιτέχνες
           </h2>
           <p className="mt-8 text-ink/70 text-base leading-[1.8] max-w-lg">
-            Στο Lumière Nails πιστεύουμε ότι κάθε λεπτομέρεια μετράει. Χρησιμοποιούμε αποκλειστικά
+            Στο Natalia Νυχάδικο πιστεύουμε ότι κάθε λεπτομέρεια μετράει. Χρησιμοποιούμε αποκλειστικά
             premium προϊόντα και τεχνικές για να σας χαρίσουμε τέλεια αποτελέσματα κάθε φορά.
           </p>
           <div className="mt-10 flex flex-wrap gap-3">
