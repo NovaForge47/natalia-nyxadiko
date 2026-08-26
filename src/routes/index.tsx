@@ -21,17 +21,18 @@ export const Route = createFileRoute("/")({
   component: LumierePage,
   head: () => ({
     meta: [
-      { title: "Natalia Νυχάδικο — Nail Salon στην Αθήνα | 4.7★ στο Google" },
+      { title: "Natalia Νυχάδικο — Ποδολογικές Υπηρεσίες & Nail Salon στην Αθήνα" },
       {
         name: "description",
         content:
-          "Natalia Νυχάδικο, Pithias 55, Αθήνα. Manicure, pedicure, ημιμόνιμο και nail art. 4.7★ από 62 κριτικές στο Google. Κλείστε ραντεβού online.",
+          "Natalia Νυχάδικο, Pithias 55, Αθήνα. Εξειδίκευση σε ποδολογικές υπηρεσίες — pedicure, ονυχομυκητίαση, κάλοι, ονυχοκρυπτώσεις — καθώς και manicure & nail art. 4.7★ / 62 κριτικές.",
       },
-      { property: "og:title", content: "Natalia Νυχάδικο — Nail Salon στην Αθήνα" },
+      { property: "og:title", content: "Natalia Νυχάδικο — Ποδολογικές Υπηρεσίες στην Αθήνα" },
       {
         property: "og:description",
-        content: "Pithias 55, Αθήνα · 695 755 7554 · Online κρατήσεις 24/7.",
+        content: "Εξειδίκευση σε ποδολογικές υπηρεσίες · Pithias 55, Αθήνα · 695 755 7554 · Online κρατήσεις 24/7.",
       },
+
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
@@ -195,7 +196,7 @@ function Hero() {
         <div aria-hidden className="pointer-events-none absolute bottom-16 left-10 w-56 h-56 rounded-full bg-rose-gold/10 blur-3xl" />
         <div className="relative max-w-xl">
           <p className="text-rose-gold text-xs md:text-[13px] uppercase tracking-[0.32em] font-medium">
-            Nail Studio · Αθήνα
+            Ποδολογικές Υπηρεσίες · Nail Studio · Αθήνα
           </p>
           <div className="mt-5 h-[2px] w-[60px] bg-rose-gold" />
           <h1 className="mt-8 font-display font-light leading-[1.05] text-[56px] md:text-[72px] lg:text-[80px] tracking-tight">
@@ -206,9 +207,14 @@ function Hero() {
             <br />
             σας
           </h1>
-          <p className="mt-8 text-white/60 text-base md:text-[17px] leading-relaxed max-w-md">
-            Κάθε λεπτομέρεια μετράει. Κάθε νύχι είναι έργο τέχνης.
+          <p className="mt-6 inline-flex items-center rounded-full border border-rose-gold/60 bg-rose-gold/10 px-5 py-2 text-sm text-rose-gold">
+            🦶 Εξειδίκευση στις ποδολογικές υπηρεσίες
           </p>
+          <p className="mt-6 text-white/60 text-base md:text-[17px] leading-relaxed max-w-md">
+            Το νυχάδικό μας εστιάζει κυρίως στις ποδολογικές υπηρεσίες — φροντίδα και περιποίηση
+            νυχιών ποδιών. Κάθε λεπτομέρεια μετράει.
+          </p>
+
           <div className="mt-10 flex flex-wrap gap-4">
             <a
               href="#booking"
@@ -239,7 +245,7 @@ function Hero() {
 /* -------------------- RIBBON -------------------- */
 function Ribbon() {
   const text =
-    "PREMIUM NAIL ART · MANICURE · PEDICURE · GEL · ΗΜΙΜΟΝΙΜΟ · NAIL ART · NATALIA ΝΥΧΑΔΙΚΟ · ΑΘΗΝΑ · ";
+    "ΠΟΔΟΛΟΓΙΚΕΣ ΥΠΗΡΕΣΙΕΣ · PEDICURE · ΦΡΟΝΤΙΔΑ ΝΥΧΙΩΝ ΠΟΔΙΩΝ · MANICURE · ΗΜΙΜΟΝΙΜΟ · NAIL ART · NATALIA ΝΥΧΑΔΙΚΟ · ΑΘΗΝΑ · ";
   return (
     <section className="bg-ink py-8 overflow-hidden border-y border-rose-gold/20">
       <div className="flex whitespace-nowrap lumiere-marquee-track">
@@ -279,17 +285,20 @@ function About() {
     <section className="bg-white py-24 lg:py-32">
       <div className="mx-auto max-w-3xl px-6 lg:px-10">
         <div>
-          <SectionLabel>Το Studio μας</SectionLabel>
+          <SectionLabel>Το Studio μας · Ποδολογικές Υπηρεσίες</SectionLabel>
           <RoseLine />
           <h2 className="mt-8 font-display font-light text-4xl md:text-5xl leading-[1.1]">
-            Εμπιστευτείτε τα Νύχιά σας σε Αληθινούς Καλλιτέχνες
+            Εξειδικευμένοι στις Ποδολογικές Υπηρεσίες
           </h2>
           <p className="mt-8 text-ink/70 text-base leading-[1.8] max-w-lg">
-            Στο Natalia Νυχάδικο πιστεύουμε ότι κάθε λεπτομέρεια μετράει. Χρησιμοποιούμε αποκλειστικά
-            premium προϊόντα και τεχνικές για να σας χαρίσουμε τέλεια αποτελέσματα κάθε φορά.
+            Στο Natalia Νυχάδικο εστιάζουμε κυρίως στις ποδολογικές υπηρεσίες: ολοκληρωμένη
+            περιποίηση και φροντίδα των νυχιών των ποδιών, pedicure και θεραπείες με προσοχή στη
+            λεπτομέρεια. Παράλληλα προσφέρουμε manicure, ημιμόνιμο και nail art, πάντα με premium
+            προϊόντα και τεχνικές.
           </p>
           <div className="mt-10 flex flex-wrap gap-3">
             {[
+              "🦶 Ποδολογικές Υπηρεσίες",
               "💅 Premium Προϊόντα",
               "👩‍🎨 Πιστοποιημένες Τεχνίτριες",
               "✨ Μοναδικά Σχέδια",
@@ -389,7 +398,9 @@ function Booking() {
           <h2 className="mt-8 font-display font-light text-4xl md:text-5xl">
             Κλείστε το Ραντεβού σας
           </h2>
-          <p className="mt-4 text-ink/70">Online 24/7 — χωρίς τηλεφώνημα</p>
+          <p className="mt-4 text-ink/70">
+            Ποδολογικές υπηρεσίες, pedicure, manicure & nail art — online 24/7, χωρίς τηλεφώνημα
+          </p>
         </div>
 
         <div className="mt-10 bg-white rounded-2xl p-3 md:p-5 shadow-[0_25px_60px_-25px_rgba(183,110,121,0.35)]">
@@ -590,7 +601,9 @@ function FinalCTA() {
           Έτοιμες για Τέλεια Νύχια;
         </h2>
         <div className="mt-6 h-[2px] w-[60px] bg-white mx-auto" />
-        <p className="mt-6 text-white/90 text-lg">Κλείστε ραντεβού online — 24/7</p>
+        <p className="mt-6 text-white/90 text-lg">
+          Εξειδίκευση στις ποδολογικές υπηρεσίες — κλείστε ραντεβού online 24/7
+        </p>
         <a
           href="#booking"
           className="mt-10 inline-flex items-center gap-2 rounded-full bg-white text-rose-gold px-8 py-4 text-sm font-medium hover:scale-[1.03] hover:bg-white/95 transition-all shadow-[0_20px_45px_-15px_rgba(0,0,0,0.35)]"
@@ -611,7 +624,8 @@ function Footer() {
           <div className="md:col-span-2">
             <div className="font-display italic text-rose-gold text-3xl">Natalia Νυχάδικο</div>
             <p className="mt-6 text-white/60 text-sm leading-relaxed max-w-sm">
-              Nail studio στην Αθήνα. Κάθε νύχι είναι έργο τέχνης.
+              Nail studio στην Αθήνα με εξειδίκευση στις ποδολογικές υπηρεσίες — φροντίδα νυχιών
+              ποδιών, pedicure, manicure & nail art.
             </p>
             <div className="mt-6 flex gap-3">
               <a
