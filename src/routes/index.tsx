@@ -285,17 +285,20 @@ function About() {
     <section className="bg-white py-24 lg:py-32">
       <div className="mx-auto max-w-3xl px-6 lg:px-10">
         <div>
-          <SectionLabel>Το Studio μας</SectionLabel>
+          <SectionLabel>Το Studio μας · Ποδολογικές Υπηρεσίες</SectionLabel>
           <RoseLine />
           <h2 className="mt-8 font-display font-light text-4xl md:text-5xl leading-[1.1]">
-            Εμπιστευτείτε τα Νύχιά σας σε Αληθινούς Καλλιτέχνες
+            Εξειδικευμένοι στις Ποδολογικές Υπηρεσίες
           </h2>
           <p className="mt-8 text-ink/70 text-base leading-[1.8] max-w-lg">
-            Στο Natalia Νυχάδικο πιστεύουμε ότι κάθε λεπτομέρεια μετράει. Χρησιμοποιούμε αποκλειστικά
-            premium προϊόντα και τεχνικές για να σας χαρίσουμε τέλεια αποτελέσματα κάθε φορά.
+            Στο Natalia Νυχάδικο εστιάζουμε κυρίως στις ποδολογικές υπηρεσίες: ολοκληρωμένη
+            περιποίηση και φροντίδα των νυχιών των ποδιών, pedicure και θεραπείες με προσοχή στη
+            λεπτομέρεια. Παράλληλα προσφέρουμε manicure, ημιμόνιμο και nail art, πάντα με premium
+            προϊόντα και τεχνικές.
           </p>
           <div className="mt-10 flex flex-wrap gap-3">
             {[
+              "🦶 Ποδολογικές Υπηρεσίες",
               "💅 Premium Προϊόντα",
               "👩‍🎨 Πιστοποιημένες Τεχνίτριες",
               "✨ Μοναδικά Σχέδια",
