@@ -624,7 +624,8 @@ function Footer() {
           <div className="md:col-span-2">
             <div className="font-display italic text-rose-gold text-3xl">Natalia Νυχάδικο</div>
             <p className="mt-6 text-white/60 text-sm leading-relaxed max-w-sm">
-              Nail studio στην Αθήνα. Κάθε νύχι είναι έργο τέχνης.
+              Nail studio στην Αθήνα με εξειδίκευση στις ποδολογικές υπηρεσίες — φροντίδα νυχιών
+              ποδιών, pedicure, manicure & nail art.
             </p>
             <div className="mt-6 flex gap-3">
               <a
