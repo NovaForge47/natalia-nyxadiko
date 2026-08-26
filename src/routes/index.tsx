@@ -196,7 +196,7 @@ function Hero() {
         <div aria-hidden className="pointer-events-none absolute bottom-16 left-10 w-56 h-56 rounded-full bg-rose-gold/10 blur-3xl" />
         <div className="relative max-w-xl">
           <p className="text-rose-gold text-xs md:text-[13px] uppercase tracking-[0.32em] font-medium">
-            Nail Studio · Αθήνα
+            Ποδολογικές Υπηρεσίες · Nail Studio · Αθήνα
           </p>
           <div className="mt-5 h-[2px] w-[60px] bg-rose-gold" />
           <h1 className="mt-8 font-display font-light leading-[1.05] text-[56px] md:text-[72px] lg:text-[80px] tracking-tight">
@@ -207,9 +207,14 @@ function Hero() {
             <br />
             σας
           </h1>
-          <p className="mt-8 text-white/60 text-base md:text-[17px] leading-relaxed max-w-md">
-            Κάθε λεπτομέρεια μετράει. Κάθε νύχι είναι έργο τέχνης.
+          <p className="mt-6 inline-flex items-center rounded-full border border-rose-gold/60 bg-rose-gold/10 px-5 py-2 text-sm text-rose-gold">
+            🦶 Εξειδίκευση στις ποδολογικές υπηρεσίες
           </p>
+          <p className="mt-6 text-white/60 text-base md:text-[17px] leading-relaxed max-w-md">
+            Το νυχάδικό μας εστιάζει κυρίως στις ποδολογικές υπηρεσίες — φροντίδα και περιποίηση
+            νυχιών ποδιών. Κάθε λεπτομέρεια μετράει.
+          </p>
+
           <div className="mt-10 flex flex-wrap gap-4">
             <a
               href="#booking"
