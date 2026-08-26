@@ -601,7 +601,9 @@ function FinalCTA() {
           Έτοιμες για Τέλεια Νύχια;
         </h2>
         <div className="mt-6 h-[2px] w-[60px] bg-white mx-auto" />
-        <p className="mt-6 text-white/90 text-lg">Κλείστε ραντεβού online — 24/7</p>
+        <p className="mt-6 text-white/90 text-lg">
+          Εξειδίκευση στις ποδολογικές υπηρεσίες — κλείστε ραντεβού online 24/7
+        </p>
         <a
           href="#booking"
           className="mt-10 inline-flex items-center gap-2 rounded-full bg-white text-rose-gold px-8 py-4 text-sm font-medium hover:scale-[1.03] hover:bg-white/95 transition-all shadow-[0_20px_45px_-15px_rgba(0,0,0,0.35)]"
