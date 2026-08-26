@@ -398,7 +398,9 @@ function Booking() {
           <h2 className="mt-8 font-display font-light text-4xl md:text-5xl">
             Κλείστε το Ραντεβού σας
           </h2>
-          <p className="mt-4 text-ink/70">Online 24/7 — χωρίς τηλεφώνημα</p>
+          <p className="mt-4 text-ink/70">
+            Ποδολογικές υπηρεσίες, pedicure, manicure & nail art — online 24/7, χωρίς τηλεφώνημα
+          </p>
         </div>
 
         <div className="mt-10 bg-white rounded-2xl p-3 md:p-5 shadow-[0_25px_60px_-25px_rgba(183,110,121,0.35)]">
