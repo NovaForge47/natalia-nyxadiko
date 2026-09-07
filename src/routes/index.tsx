@@ -50,7 +50,7 @@ const BUSINESS = {
   phoneTel: "+306957557554",
   instagram: "https://www.instagram.com/nporseva/",
   facebook: "https://www.facebook.com/profile.php?id=100063954436413",
-  booking: "https://www.treatwell.gr/katasthma/natalia-nychadiko/",
+  booking: "https://natalianailsalon.setmore.com/natalia",
   hours: [
     { day: "Δευτέρα", time: "Κλειστά" },
     { day: "Τρίτη", time: "9:00 - 21:00" },
@@ -406,7 +406,7 @@ function Booking() {
 
         <div className="mt-10 bg-white rounded-2xl p-8 md:p-12 shadow-[0_25px_60px_-25px_rgba(183,110,121,0.35)] text-center">
           <p className="text-ink/70 max-w-lg mx-auto">
-            Κάντε την κράτησή σας online μέσω Treatwell — γρήγορα, εύκολα και
+            Κάντε την κράτησή σας online μέσω Setmore — γρήγορα, εύκολα και
             χωρίς τηλεφώνημα.
           </p>
           <a
@@ -416,7 +416,7 @@ function Booking() {
             className="mt-8 inline-flex items-center gap-2 rounded-full bg-rose-gold text-white px-8 py-4 text-sm font-medium hover:-translate-y-1 hover:bg-rose-gold/90 transition-all shadow-[0_15px_30px_-12px_rgba(183,110,121,0.7)]"
           >
             <ExternalLink size={16} />
-            Κλείστε Ραντεβού στο Treatwell
+            Κλείστε Ραντεβού στο Setmore
           </a>
         </div>
 
