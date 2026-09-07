@@ -13,6 +13,7 @@ import {
   Phone,
   Instagram,
   Facebook,
+  ExternalLink,
   Menu,
   X,
 } from "lucide-react";
@@ -49,7 +50,7 @@ const BUSINESS = {
   phoneTel: "+306957557554",
   instagram: "https://www.instagram.com/nporseva/",
   facebook: "https://www.facebook.com/profile.php?id=100063954436413",
-  booking: "https://natalianailsalon.setmore.com/natalia",
+  booking: "https://www.treatwell.gr/katasthma/natalia-nychadiko/",
   hours: [
     { day: "Δευτέρα", time: "Κλειστά" },
     { day: "Τρίτη", time: "9:00 - 21:00" },
@@ -403,14 +404,20 @@ function Booking() {
           </p>
         </div>
 
-        <div className="mt-10 bg-white rounded-2xl p-3 md:p-5 shadow-[0_25px_60px_-25px_rgba(183,110,121,0.35)]">
-          <iframe
-            title="Κράτηση ραντεβού — Natalia Νυχάδικο"
-            src={BUSINESS.booking}
-            className="block w-full rounded-xl border border-rose-gold/40"
-            height={700}
-            loading="lazy"
-          />
+        <div className="mt-10 bg-white rounded-2xl p-8 md:p-12 shadow-[0_25px_60px_-25px_rgba(183,110,121,0.35)] text-center">
+          <p className="text-ink/70 max-w-lg mx-auto">
+            Κάντε την κράτησή σας online μέσω Treatwell — γρήγορα, εύκολα και
+            χωρίς τηλεφώνημα.
+          </p>
+          <a
+            href={BUSINESS.booking}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-8 inline-flex items-center gap-2 rounded-full bg-rose-gold text-white px-8 py-4 text-sm font-medium hover:-translate-y-1 hover:bg-rose-gold/90 transition-all shadow-[0_15px_30px_-12px_rgba(183,110,121,0.7)]"
+          >
+            <ExternalLink size={16} />
+            Κλείστε Ραντεβού στο Treatwell
+          </a>
         </div>
 
         <div className="mt-8 flex flex-wrap justify-center gap-4">
