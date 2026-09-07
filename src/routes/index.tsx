@@ -13,7 +13,6 @@ import {
   Phone,
   Instagram,
   Facebook,
-  ExternalLink,
   Menu,
   X,
 } from "lucide-react";
