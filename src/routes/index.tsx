@@ -30,7 +30,7 @@ export const Route = createFileRoute("/")({
       { property: "og:title", content: "Natalia Νυχάδικο — Ποδολογικές Υπηρεσίες στην Αθήνα" },
       {
         property: "og:description",
-        content: "Εξειδίκευση σε ποδολογικές υπηρεσίες · Pithias 55, Αθήνα · 695 755 7554 · Online κρατήσεις 24/7.",
+        content: "Εξειδίκευση σε ποδολογικές υπηρεσίες · Pithias 55, Αθήνα · 21 0866 2976 · Online κρατήσεις 24/7.",
       },
 
       { property: "og:type", content: "website" },
@@ -45,8 +45,8 @@ const BUSINESS = {
   name: "Natalia Νυχάδικο",
   address: "Pithias 55, Athina 113 64",
   mapsUrl: "https://www.google.com/maps/place/Pithias+55,+Athina+113+64",
-  phone: "695 755 7554",
-  phoneTel: "+306957557554",
+  phone: "21 0866 2976",
+  phoneTel: "+302108662976",
   instagram: "https://www.instagram.com/nporseva/",
   facebook: "https://www.facebook.com/profile.php?id=100063954436413",
   booking: "https://natalianailsalon.setmore.com/natalia",
