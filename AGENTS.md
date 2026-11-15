@@ -8,3 +8,5 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+
+Serve gallery images as ordinary files in `public/images/` using root-relative URLs so the site remains portable to other hosts.

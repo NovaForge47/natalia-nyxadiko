@@ -1,11 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import heroHand from "@/assets/hero-hand.jpg";
-import nail1 from "@/assets/gallery/nail-1.png.asset.json";
-import nail2 from "@/assets/gallery/nail-2.png.asset.json";
-import nail3 from "@/assets/gallery/nail-3.png.asset.json";
-import nail4 from "@/assets/gallery/nail-4.png.asset.json";
-import nail5 from "@/assets/gallery/nail-5.png.asset.json";
 import {
   ArrowRight,
   Star,
@@ -431,11 +426,11 @@ function Booking() {
 /* -------------------- GALLERY -------------------- */
 function Gallery() {
   const slides = [
-    { src: nail1.url, alt: "Nail art με μαργαρίτες σε κίτρινο γαλλικό" },
-    { src: nail2.url, alt: "Chrome nail art σε nude βάση" },
-    { src: nail3.url, alt: "Μπλε νύχια με σχέδια κινουμένων σχεδίων" },
-    { src: nail4.url, alt: "Κλασικό γαλλικό manicure" },
-    { src: nail5.url, alt: "Μπλε νύχια με πεταλούδες" },
+    { src: "/images/nail-1.png", alt: "Nail art με μαργαρίτες σε κίτρινο γαλλικό" },
+    { src: "/images/nail-2.png", alt: "Chrome nail art σε nude βάση" },
+    { src: "/images/nail-3.png", alt: "Μπλε νύχια με σχέδια κινουμένων σχεδίων" },
+    { src: "/images/nail-4.png", alt: "Κλασικό γαλλικό manicure" },
+    { src: "/images/nail-5.png", alt: "Μπλε νύχια με πεταλούδες" },
   ];
   const [idx, setIdx] = useState(0);
   const go = (d: number) => setIdx((i) => (i + d + slides.length) % slides.length);
